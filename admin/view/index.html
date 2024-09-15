@@ -1,11 +1,142 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin</title>
+  <!-- link fontawesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Liên kết CSS của Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../asset/css/admin.css">
 </head>
+
 <body>
-    
+  <!-- Header -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="mainNav">
+    <a class="navbar-brand" href="#home" id="brandLogo">
+      <img src="../asset/image/logo.jpeg" alt="Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="navToggle">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto" id="navItems">
+        <li class="nav-item active" id="navHome">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item" id="navStore">
+          <a class="nav-link" href="#">Store</a>
+        </li>
+        <li class="nav-item dropdown" id="navDropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Item
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="dropdownMenu">
+            <a class="dropdown-item" href="#">Iphone</a>
+            <a class="dropdown-item" href="#">SamSung</a>
+          </div>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0" id="searchForm">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchBtn">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <!-- -Table -->
+  <section class="table">
+    <div class="container">
+      <div class="table__title">
+        <h3>Phone Management </h3>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          Add Phone
+        </button>
+      </div>
+      <div class="table-responsive table__content">
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Photo</th>
+              <th>Description</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="productTable">
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Create Product</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="createProductForm">
+            <div class="form-group">
+              <label for="form_name">Name</label>
+              <input type="text" class="form-control" id="form_name" placeholder="Enter product name">
+              <span id="tb_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+              <label for="form_price">Price</label>
+              <input type="number" class="form-control" id="form_price" placeholder="Enter product price">
+              <span id="tb_price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+              <label for="form_photo">Photo</label>
+              <input type="text" class="form-control" id="form_photo" placeholder="Enter url image">
+              <span id="tb_photo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+              <label for="form_category">Category</label>
+              <select class="form-control" id="form_category">
+                <option>Select Phone</option>
+                <option value="iphone">Iphone</option>
+                <option value="samsung">Samsung</option>
+              </select>
+              <span id="tb_category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+              <label for="form_description">Description</label>
+              <textarea class="form-control" id="form_description" rows="3"
+                placeholder="Enter product description"></textarea>
+              <span id="tb_description" class="text-danger"></span>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger">Add</button>
+          <button type="button" class="btn btn-warning">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Liên kết JavaScript của Bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
