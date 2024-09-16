@@ -46,7 +46,8 @@
       </ul>
       <form class="form-inline my-2 my-lg-0" id="searchForm">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchBtn">Search</button>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchBtn"
+          onclick="searchProduct()">Search</button>
       </form>
     </div>
   </nav>
@@ -148,7 +149,7 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <button type="button" class="btn btn-danger" onclick="addProduct()">Add</button>
-          <button type="button" class="btn btn-warning">Update</button>
+          <button type="button" class="btn btn-warning" onclick="updateProduct()">Update</button>
         </div>
       </div>
     </div>
@@ -163,6 +164,9 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- validate -->
+  <script src="../model//validate.js"></script>
 
   <!-- model -->
   <script src="../model/model.js"></script>
