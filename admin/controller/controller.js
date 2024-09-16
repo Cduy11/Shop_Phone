@@ -23,6 +23,19 @@ const layThongTin = () => {
   return listProduct;
 };
 
+// hiển thị thông tin
+const hienThiThongTin = (data) => {
+  document.getElementById("form_id").value = data.id;
+  document.getElementById("form_name").value = data.name;
+  document.getElementById("form_price").value = data.price;
+  document.getElementById("form_screen").value = data.screen;
+  document.getElementById("form_camera").value = data.backCamera;
+  document.getElementById("form_fontCamera").value = data.frontCamera;
+  document.getElementById("form_category").value = data.type;
+  document.getElementById("form_description").value = data.desc;
+  document.getElementById("form_image").value = data.img;
+};
+
 // render thông tin
 const renderProduct = (dataProduct) => {
   let contentHTML = "";
@@ -36,7 +49,7 @@ const renderProduct = (dataProduct) => {
         <td>${item.desc}</td>
         <td> 
         <button class=" btn btn-danger" onclick= deleteProduct('${item.id}') >Xóa</button>
-        <button class=" btn btn-info" >Sửa</button>
+        <button class=" btn btn-info" onclick= editProduct('${item.id}') >Sửa</button>
         </td>
     </tr>
     `;
