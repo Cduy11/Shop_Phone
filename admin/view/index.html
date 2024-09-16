@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- Liên kết CSS của Bootstrap -->
+  <!-- link Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="../asset/css/admin.css">
 </head>
@@ -93,6 +93,11 @@
         <div class="modal-body">
           <form id="createProductForm">
             <div class="form-group">
+              <label for="form_id">ID</label>
+              <input type="text" class="form-control" id="form_id" placeholder="Enter product ID">
+              <span id="tb_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
               <label for="form_name">Name</label>
               <input type="text" class="form-control" id="form_name" placeholder="Enter product name">
               <span id="tb_name" class="text-danger"></span>
@@ -103,9 +108,24 @@
               <span id="tb_price" class="text-danger"></span>
             </div>
             <div class="form-group">
-              <label for="form_photo">Photo</label>
-              <input type="text" class="form-control" id="form_photo" placeholder="Enter url image">
-              <span id="tb_photo" class="text-danger"></span>
+              <label for="form_screen">Screen</label>
+              <input type="text" class="form-control" id="form_screen" placeholder="Enter screen">
+              <span id="tb_screen" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+              <label for="form_camera">Back Camera</label>
+              <input type="text" class="form-control" id="form_camera" placeholder="Enter backCamera">
+              <span id="tb_camera" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+              <label for="form_fontCamera">Front Camera</label>
+              <input type="text" class="form-control" id="form_fontCamera" placeholder="Enter font camera">
+              <span id="tb_fontCamera" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+              <label for="form_image">Image</label>
+              <input type="text" class="form-control" id="form_image" placeholder="Enter font camera">
+              <span id="tb_image" class="text-danger"></span>
             </div>
             <div class="form-group">
               <label for="form_category">Category</label>
@@ -116,6 +136,7 @@
               </select>
               <span id="tb_category" class="text-danger"></span>
             </div>
+
             <div class="form-group">
               <label for="form_description">Description</label>
               <textarea class="form-control" id="form_description" rows="3"
@@ -126,17 +147,31 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-danger">Add</button>
+          <button type="button" class="btn btn-danger" onclick="addProduct()">Add</button>
           <button type="button" class="btn btn-warning">Update</button>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- axios -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"
+    integrity="sha512-DdX/YwF5e41Ok+AI81HI8f5/5UsoxCVT9GKYZRIzpLxb8Twz4ZwPPX+jQMwMhNQ9b5+zDEefc+dcvQoPWGNZ3g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
   <!-- Liên kết JavaScript của Bootstrap -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- model -->
+  <script src="../model/model.js"></script>
+
+  <!-- controller  -->
+  <script src="../controller/controller.js"></script>
+
+  <!-- main js -->
+  <script src="../controller//index.js"></script>
 </body>
 
 </html>
