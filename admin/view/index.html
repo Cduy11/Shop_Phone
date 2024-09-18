@@ -34,20 +34,23 @@
           <a class="nav-link" href="#">Store</a>
         </li>
         <li class="nav-item dropdown" id="navDropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Item
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="dropdownMenu">
-            <a class="dropdown-item" href="#">Iphone</a>
-            <a class="dropdown-item" href="#">SamSung</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <form id="filterForm">
+              <select class="form-control" id="typeFilter">
+                <option value="all">All</option>
+                <option value="iphone">Iphone</option>
+                <option value="samsung">Samsung</option>
+              </select>
+            </form>
           </div>
         </li>
+        
       </ul>
-      <form class="form-inline my-2 my-lg-0" id="searchForm">
+      <form class="form-inline my-2 my-lg-0" id="searchForm" >
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchBtn"
-          onclick="searchProduct()">Search</button>
       </form>
     </div>
   </nav>
@@ -131,7 +134,6 @@
             <div class="form-group">
               <label for="form_category">Category</label>
               <select class="form-control" id="form_category">
-                <option>Select Phone</option>
                 <option value="iphone">Iphone</option>
                 <option value="samsung">Samsung</option>
               </select>

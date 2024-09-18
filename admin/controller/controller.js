@@ -23,18 +23,32 @@ const layThongTin = () => {
   return listProduct;
 };
 
-// hiển thị thông tin
+
+//  HIỂN THỊ THÔNG TIN
+const Iphone = "iphone";
+const SamSung = "samsung";
+
 const hienThiThongTin = (data) => {
-  document.getElementById("form_id").value = data.id;
-  document.getElementById("form_name").value = data.name;
-  document.getElementById("form_price").value = data.price;
-  document.getElementById("form_screen").value = data.screen;
-  document.getElementById("form_camera").value = data.backCamera;
-  document.getElementById("form_fontCamera").value = data.frontCamera;
-  document.getElementById("form_category").value = data.type;
-  document.getElementById("form_description").value = data.desc;
-  document.getElementById("form_image").value = data.img;
+  let { id,
+    name,
+    price,
+    screen,
+    backCamera,
+    frontCamera,
+    type,
+    desc,
+    img } = data
+  document.getElementById("form_id").value = id;
+  document.getElementById("form_name").value = name;
+  document.getElementById("form_price").value = price;
+  document.getElementById("form_screen").value = screen;
+  document.getElementById("form_camera").value = backCamera;
+  document.getElementById("form_fontCamera").value = frontCamera;
+  document.getElementById("form_category").value = type ? Iphone : SamSung;
+  document.getElementById("form_description").value = desc;
+  document.getElementById("form_image").value = img;
 };
+
 
 // render thông tin
 const renderProduct = (dataProduct) => {
