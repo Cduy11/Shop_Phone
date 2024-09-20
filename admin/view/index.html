@@ -34,7 +34,8 @@
           <a class="nav-link" href="#">Store</a>
         </li>
         <li class="nav-item dropdown" id="navDropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
             Item
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -47,9 +48,24 @@
             </form>
           </div>
         </li>
-        
+        <li class="nav-item dropdown" id="navPriceDropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="priceDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Sort by Price
+          </a>
+          <div class="dropdown-menu" aria-labelledby="priceDropdown">
+            <form id="filterForm">
+              <select class="form-control" id="priceFilter">
+                <option value="all">All</option>
+                <option value="asc">Giá: Nhỏ đến Lớn</option>
+                <option value="desc">Giá: Lớn đến Nhỏ</option>
+              </select>
+            </form>
+           
+          </div>
+        </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0" id="searchForm" >
+      <form class="form-inline my-2 my-lg-0" id="searchForm">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
       </form>
     </div>
@@ -149,7 +165,7 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeProduct()">Close</button>
           <button type="button" class="btn btn-danger" onclick="addProduct()">Add</button>
           <button type="button" class="btn btn-warning" onclick="updateProduct()">Update</button>
         </div>
@@ -168,16 +184,16 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <!-- validate -->
-  <script src="../model//validate.js"></script>
+  <script src="../model/validate.js"></script>
 
   <!-- model -->
   <script src="../model/model.js"></script>
 
-  <!-- controller  -->
+  <!-- controller -->
   <script src="../controller/controller.js"></script>
 
   <!-- main js -->
-  <script src="../controller//index.js"></script>
+  <script src="../controller/index.js"></script>
 </body>
 
 </html>
