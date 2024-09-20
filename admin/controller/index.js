@@ -73,6 +73,7 @@ const editProduct = (id) => {
       hienThiThongTin(res.data);
       document.getElementById("form_id").disabled = true
       $("#exampleModal").modal("show");
+
     })
     .catch(function (err) {
       console.log("🚀 ~ err:", err);
@@ -109,39 +110,6 @@ const updateProduct = () => {
   }
 };
 
-
-// hàm reset 
-const resetForm = () => {
-  document.getElementById("createProductForm").reset()
-  document.getElementById("form_id").disabled = false
-}
-
-
-// hàm filter 
-const filterProduct = () => {
-  let selectedType = document.getElementById("typeFilter").value;
-
-  axios({
-    url: `${PRODUCT_URL}`,
-    method: "GET",
-  })
-    .then(function (res) {
-      let products = res.data;
-
-      if (selectedType === "all") {
-        // Hiển thị tất cả sản phẩm khi chọn "all"
-        renderProduct(products);
-      } else {
-        // Lọc sản phẩm dựa trên tên sản phẩm
-        let filteredProducts = products.filter(product => product.name.toLowerCase().includes(selectedType.toLowerCase()));
-        renderProduct(filteredProducts);
-      }
-    })
-    .catch(function (err) {
-      console.log("🚀 ~ err:", err);
-    });
-};
-
 // hàm search 
 const searchProduct = () => {
   let search = document.getElementById("searchInput").value.toLowerCase();
@@ -164,6 +132,58 @@ const searchProduct = () => {
     });
 };
 
-// nút sự kiện 
-document.getElementById('typeFilter').addEventListener('change', filterProduct);
-document.getElementById('searchInput').addEventListener('input', searchProduct);
+
+// hàm reset 
+const resetForm = () => {
+  document.getElementById("createProductForm").reset()
+  document.getElementById("form_id").disabled = false
+}
+
+// hàm close
+const closeProduct = () => {
+  resetForm()
+}
+
+// hàm filter theo giá
+document.getElementById('priceFilter').addEventListener('change', function () {
+  let selectedOption = document.getElementById('priceFilter').value;
+
+  axios({
+    url: `${PRODUCT_URL}`,
+    method: "GET",
+  })
+    .then(function (res) {
+      let products = res.data;
+
+      if (selectedOption === 'asc') {
+        products.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+      } else if (selectedOption === 'desc') {
+        products.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+      }
+
+      renderProduct(products);
+    })
+    .catch(function (err) {
+      console.log("🚀 ~ err:", err);
+    });
+});
+
+// hàm filter theo tên sản phẩm
+document.getElementById('typeFilter').addEventListener('change', function () {
+  let selectedType = document.getElementById('typeFilter').value;
+
+  axios({
+    url: `${PRODUCT_URL}`,
+    method: "GET",
+  })
+    .then(function (res) {
+      let products = res.data;
+      if (selectedType !== 'all') {
+        products = products.filter(product => product.name.toLowerCase().includes(selectedType));
+      }
+      renderProduct(products);
+    })
+    .catch(function (err) {
+      console.log("🚀 ~ err:", err);
+    });
+});

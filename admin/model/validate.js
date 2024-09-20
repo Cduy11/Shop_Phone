@@ -17,7 +17,8 @@ const kiemTraSoDuong = (value, idErr) => {
   document.getElementById(idErr).innerHTML = "";
   return true;
 }
-a
+
+
 // const kiemTraURL = (value, idErr) => {
 //   var regexURL =/\.(jpg|jpeg|png|gif|bmp)$/i;
 //   var isCheckURL = regexURL.test(value);

@@ -27,7 +27,6 @@ const layThongTin = () => {
 //  HIỂN THỊ THÔNG TIN
 const Iphone = "iphone";
 const SamSung = "samsung";
-
 const hienThiThongTin = (data) => {
   let { id,
     name,
