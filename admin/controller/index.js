@@ -110,29 +110,6 @@ const updateProduct = () => {
   }
 };
 
-// hàm search 
-const searchProduct = () => {
-  let search = document.getElementById("searchInput").value.toLowerCase();
-  axios({
-    url: `${PRODUCT_URL}`,
-    method: "GET",
-  })
-    .then(function (res) {
-      let products = res.data;
-
-
-      let filteredProducts = products.filter(product => {
-
-        return product.name.toLowerCase().includes(search);
-      })
-      renderProduct(filteredProducts);
-    })
-    .catch(function (err) {
-      console.log("🚀 ~ err:", err);
-    });
-};
-
-
 // hàm reset 
 const resetForm = () => {
   document.getElementById("createProductForm").reset()
@@ -182,6 +159,48 @@ document.getElementById('typeFilter').addEventListener('change', function () {
         products = products.filter(product => product.name.toLowerCase().includes(selectedType));
       }
       renderProduct(products);
+    })
+    .catch(function (err) {
+      console.log("🚀 ~ err:", err);
+    });
+});
+
+// hàm search 
+// const searchProduct = () => {
+//   let search = document.getElementById("searchInput").value.toLowerCase();
+//   axios({
+//     url: `${PRODUCT_URL}`,
+//     method: "GET",
+//   })
+//     .then(function (res) {
+//       let products = res.data;
+
+
+//       let filteredProducts = products.filter(product => {
+
+//         return product.name.toLowerCase().includes(search);
+//       })
+//       renderProduct(filteredProducts);
+//     })
+//     .catch(function (err) {
+//       console.log("🚀 ~ err:", err);
+//     });
+// };document.getElementById('searchInput').addEventListener('input', searchProduct);
+
+document.getElementById("searchInput").addEventListener('input', function() {
+  let search = document.getElementById("searchInput").value.toLowerCase();
+  axios({
+    url: `${PRODUCT_URL}`,
+    method: "GET",
+  })
+    .then(function (res) {
+      let products = res.data;
+
+      let filteredProducts = products.filter(product => {
+        return product.name.toLowerCase().includes(search);
+      });
+
+      renderProduct(filteredProducts);
     })
     .catch(function (err) {
       console.log("🚀 ~ err:", err);
