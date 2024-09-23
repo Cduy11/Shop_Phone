@@ -1,15 +1,17 @@
 const PRODUCT_URL = "https://66c740bc732bf1b79fa5e903.mockapi.io/products";
 
 let editedID = null;
+let allProducts = []; 
 
-// lấy thông và hiện thông tin
+// Lấy thông tin và hiện thông tin
 let fetchData = () => {
   axios({
     url: `${PRODUCT_URL}`,
     method: "GET",
   })
     .then(function (res) {
-      renderProduct(res.data);
+      allProducts = res.data; 
+      renderProduct(allProducts); 
     })
     .catch(function (err) {
       console.log("🚀 ~ err:", err);
@@ -17,7 +19,7 @@ let fetchData = () => {
 };
 fetchData();
 
-// xóa sản phẩm
+// Xóa sản phẩm
 let deleteProduct = (id) => {
   axios({
     url: `${PRODUCT_URL}/${id}`,
@@ -31,7 +33,7 @@ let deleteProduct = (id) => {
     });
 };
 
-// thêm sản phẩm
+// Thêm sản phẩm
 let addProduct = () => {
   let product = layThongTin();
   let isValid =
@@ -62,7 +64,7 @@ let addProduct = () => {
   }
 };
 
-// sửa sản phẩm
+// Sửa sản phẩm
 const editProduct = (id) => {
   editedID = id;
   axios({
@@ -71,16 +73,15 @@ const editProduct = (id) => {
   })
     .then(function (res) {
       hienThiThongTin(res.data);
-      document.getElementById("form_id").disabled = true
+      document.getElementById("form_id").disabled = true;
       $("#exampleModal").modal("show");
-
     })
     .catch(function (err) {
       console.log("🚀 ~ err:", err);
     });
 };
 
-// update sản phẩn
+// Update sản phẩm
 const updateProduct = () => {
   let product = layThongTin();
   let isValid =
@@ -93,6 +94,7 @@ const updateProduct = () => {
     kiemTraRong(product.img, "tb_image") &
     kiemTraRong(product.type, "tb_category") &
     kiemTraRong(product.desc, "tb_description");
+
   if (isValid) {
     axios({
       url: `${PRODUCT_URL}/${editedID}`,
@@ -110,78 +112,54 @@ const updateProduct = () => {
   }
 };
 
-// hàm reset 
+// Hàm reset form
 const resetForm = () => {
-  document.getElementById("createProductForm").reset()
-  document.getElementById("form_id").disabled = false
-}
+  document.getElementById("createProductForm").reset();
+  document.getElementById("form_id").disabled = false;
+};
 
-// hàm close
+// Hàm close form
 const closeProduct = () => {
-  resetForm()
-}
+  resetForm();
+};
 
-// hàm filter theo giá
-document.getElementById('priceFilter').addEventListener('change', function () {
-  let selectedOption = document.getElementById('priceFilter').value;
+// Hàm filter theo giá
+document.getElementById("priceFilter").addEventListener("change", function () {
+  let selectedOption = document.getElementById("priceFilter").value;
 
-  axios({
-    url: `${PRODUCT_URL}`,
-    method: "GET",
-  })
-    .then(function (res) {
-      let products = res.data;
+  let products = [...allProducts]; 
 
-      if (selectedOption === 'asc') {
-        products.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
-      } else if (selectedOption === 'desc') {
-        products.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
-      }
+  if (selectedOption === "asc") {
+    products.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+  } else if (selectedOption === "desc") {
+    products.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+  }
 
-      renderProduct(products);
-    })
-    .catch(function (err) {
-      console.log("🚀 ~ err:", err);
-    });
+  renderProduct(products); 
 });
 
-// hàm filter theo tên sản phẩm
-document.getElementById('typeFilter').addEventListener('change', function () {
-  let selectedType = document.getElementById('typeFilter').value;
+// Hàm filter theo loại sản phẩm
+document.getElementById("typeFilter").addEventListener("change", function () {
+  let selectedType = document.getElementById("typeFilter").value;
 
-  axios({
-    url: `${PRODUCT_URL}`,
-    method: "GET",
-  })
-    .then(function (res) {
-      let products = res.data;
-      if (selectedType !== 'all') {
-        products = products.filter(product => product.name.toLowerCase().includes(selectedType));
-      }
-      renderProduct(products);
-    })
-    .catch(function (err) {
-      console.log("🚀 ~ err:", err);
-    });
+  let products = [...allProducts]; 
+
+  if (selectedType !== "all") {
+    products = products.filter((product) =>
+      product.type.toLowerCase().includes(selectedType)
+    );
+  }
+
+  renderProduct(products); 
 });
 
-// hàm search 
-document.getElementById("searchInput").addEventListener('input', function() {
+// Hàm search sản phẩm
+document.getElementById("searchInput").addEventListener("input", function () {
   let search = document.getElementById("searchInput").value.toLowerCase();
-  axios({
-    url: `${PRODUCT_URL}`,
-    method: "GET",
-  })
-    .then(function (res) {
-      let products = res.data;
 
-      let filteredProducts = products.filter(product => {
-        return product.name.toLowerCase().includes(search);
-      });
+  let filteredProducts = allProducts.filter((product) =>
+    product.name.toLowerCase().includes(search)
+  );
 
-      renderProduct(filteredProducts);
-    })
-    .catch(function (err) {
-      console.log("🚀 ~ err:", err);
-    });
+  renderProduct(filteredProducts); 
 });

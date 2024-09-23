@@ -1,11 +1,17 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
 }
 
 /* Header */
 #mainNav {
-  background-color: #f8f9fa;
+  background-color: #343a40;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -14,81 +20,119 @@
   height: auto;
 }
 
-#navItems .nav-link {
-  color: #343a40;
-  font-weight: 500;
-  padding: 0.75rem 1rem;
-  transition: color 0.3s ease;
+/* Nav Items */
+#navItems {
+  width: 100%;
+  justify-content: space-between;
 }
 
-#navItems .nav-link:hover {
-  color: #007bff;
+.nav-item {
+  flex: 1;
+  text-align: center;
 }
 
-#navDropdown .dropdown-toggle {
-  color: #343a40;
+.nav-link {
+  display: block;
+  padding: 15px;
+  color: #ffffff;
+  transition: color 0.3s;
 }
 
-#navDropdown .dropdown-menu {
-  background-color: #ffffff;
-  border-radius: 0.25rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.nav-link:hover {
+  color: #0056b3;
 }
 
-#dropdownMenu .dropdown-item:hover {
-  background-color: #007bff;
-  color: #fff;
-}
-
-#searchForm input {
-  border-radius: 0.25rem;
-  border: 1px solid #ced4da;
-  transition: border-color 0.3s ease;
-}
-
-#searchForm input:focus {
-  border-color: #007bff;
-}
-
-#searchBtn {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  transition: background-color 0.3s ease;
-}
-
-#searchBtn:hover {
-  background-color: #0056b3;
-}
-
-/* Title - Table */
+/* Table Section */
 .container {
-  padding: 40px 40px;
+  padding: 40px;
 }
 
 .table__title {
   display: flex;
   justify-content: space-between;
-  background: #60679b;
-  height: 65px;
   align-items: center;
+  background-color: #60679b;
+  height: 65px;
+  padding: 0 20px;
+  border-radius: 10px;
 }
 
 .table__title h3 {
   color: #fff;
-  margin-left: 20px;
+  margin: 0;
 }
 
 .table__title button {
-  width: 90px;
-  height: 40px;
-  margin-right: 50px;
-  background: #294d5d;
-  line-height: 30px;
-  font-size: 10px;
+  background-color: #294d5d;
   color: #fff;
   border-radius: 20px;
   border: none;
+  font-size: 14px;
+  padding: 10px 20px;
+  transition: background-color 0.3s;
+}
+
+.table__title button:hover {
+  background-color: #1f3844;
+}
+
+.table__content {
+  margin-top: 20px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 15px; /* Thêm padding cho các ô */
+}
+
+.table th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+  border-bottom: 2px solid #dee2e6; /* Đường viền dưới cho tiêu đề */
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2; /* Màu nền cho hàng chẵn */
+}
+
+.table tbody tr:hover {
+  background-color: #e9ecef; 
 }
 
 
+.container .row .form-control {
+  border-radius: 0.25rem;
+  transition: border-color 0.3s ease;
+}
+
+.container .row .form-control:focus {
+  border-color: #007bff;
+}
+
+/* Modal Styling */
+.modal-header {
+  background-color: #294d5d;
+  color: white;
+}
+
+.modal-footer button {
+  border-radius: 20px;
+}
+
+
+@media (max-width: 768px) {
+  .table__title {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .table__title h3 {
+    margin-bottom: 10px;
+  }
+}

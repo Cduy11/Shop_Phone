@@ -28,46 +28,15 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto" id="navItems">
         <li class="nav-item active" id="navHome">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="#"><i class="fas fa-home"></i> Home </a>
         </li>
         <li class="nav-item" id="navStore">
-          <a class="nav-link" href="#">Store</a>
+          <a class="nav-link" href="#"><i class="fas fa-store"></i> Store </a>
         </li>
-        <li class="nav-item dropdown" id="navDropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Item
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <form id="filterForm">
-              <select class="form-control" id="typeFilter">
-                <option value="all">All</option>
-                <option value="iphone">Iphone</option>
-                <option value="samsung">Samsung</option>
-              </select>
-            </form>
-          </div>
-        </li>
-        <li class="nav-item dropdown" id="navPriceDropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="priceDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Sort by Price
-          </a>
-          <div class="dropdown-menu" aria-labelledby="priceDropdown">
-            <form id="filterForm">
-              <select class="form-control" id="priceFilter">
-                <option value="all">All</option>
-                <option value="asc">Giá: Nhỏ đến Lớn</option>
-                <option value="desc">Giá: Lớn đến Nhỏ</option>
-              </select>
-            </form>
-           
-          </div>
+        
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0" id="searchForm">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
-      </form>
+ 
     </div>
   </nav>
 
@@ -75,12 +44,36 @@
   <section class="table">
     <div class="container">
       <div class="table__title">
-        <h3>Phone Management </h3>
+        <h3>Phone Management</h3>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
           Add Phone
         </button>
       </div>
-      <div class="table-responsive table__content">
+      <div class="container">
+        <div class="row mt-3">
+          <div class="col-md-4">
+            <label for="typeFilter" class="form-label">Loại Điện Thoại</label>
+            <select class="form-control" id="typeFilter">
+              <option value="all">Tất cả</option>
+              <option value="iphone">Iphone</option>
+              <option value="samsung">Samsung</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label for="priceFilter" class="form-label">Lọc Giá</label>
+            <select class="form-control" id="priceFilter">
+              <option value="all">Tất cả</option>
+              <option value="asc">Giá: Nhỏ đến Lớn</option>
+              <option value="desc">Giá: Lớn đến Nhỏ</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label for="searchInput" class="form-label">Tìm Kiếm</label>
+            <input class="form-control" type="search" placeholder="Tìm kiếm" id="searchInput">
+          </div>
+        </div>
+      </div>
+      <div class="table-responsive table__content mt-3"></div>
         <table class="table table-bordered">
           <thead class="thead-light">
             <tr>
