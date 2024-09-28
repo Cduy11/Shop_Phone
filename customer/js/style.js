@@ -68,11 +68,9 @@ document.getElementById("btnCartClose").addEventListener("click", () => {
 });
 
 export const btnSubtractionQty = async (id) => {
-  const input = document.getElementById(`qty-input-${id}`);
   const index = listCartItem.findIndex((i) => i.id === id);
-  let currentValue = parseInt(input.value, 10);
+  let currentValue = listCartItem[index].quantity;
   if (currentValue > 1) {
-    input.value = currentValue - 1;
     const cartItem = await listCartService.update(
       listCartItem[index].id,
       listCartItem[index].quantity - 1
@@ -80,16 +78,13 @@ export const btnSubtractionQty = async (id) => {
     listCartItem[index] = cartItem;
     renderListItemCart(listCartItem);
     renderTotalCart(listCartItem);
-    renderTotalCart(listCartItem);
   }
 };
 
 export const btnAddQty = async (id) => {
-  const input = document.getElementById(`qty-input-${id}`);
   const index = listCartItem.findIndex((i) => i.id === id);
-  let currentValue = parseInt(input.value, 10);
+  let currentValue = listCartItem[index].quantity;
   if (currentValue < 1000) {
-    input.value = currentValue + 1;
     const cartItem = await listCartService.update(
       listCartItem[index].id,
       listCartItem[index].quantity + 1
@@ -97,6 +92,18 @@ export const btnAddQty = async (id) => {
     listCartItem[index] = cartItem;
     renderListItemCart(listCartItem);
     renderTotalCart(listCartItem);
-    shoppingCount(listCartItem);
   }
+};
+
+export const inputQty = async (id, quantity) => {
+  console.log(id, quantity);
+  const index = listCartItem.findIndex((i) => i.id === id);
+
+  const cartItem = await listCartService.update(
+    listCartItem[index].id,
+    quantity
+  );
+  listCartItem[index] = cartItem;
+  renderListItemCart(listCartItem);
+  renderTotalCart(listCartItem);
 };

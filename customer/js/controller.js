@@ -3,6 +3,7 @@ import {
   removeItemCart,
   btnSubtractionQty,
   btnAddQty,
+  inputQty,
 } from "./style.js";
 
 export const renderArray = (array) => {
@@ -64,9 +65,11 @@ export const renderListItemCart = (array) => {
                         <button class="minus-button" data-index="${
                           item.id
                         }" >-</button>
-                        <input type="number" id="qty-input-${
+                        <input type="number" data-id="${
                           item.id
-                        }"  class="qty-input" step="1" min="1"
+                        }" id="qty-input-${
+      item.id
+    }"  class="qty-input" step="1" min="1"
                             max="1000" name="qty-input" value="${
                               item.quantity
                             }" pattern="[0-9]*"
@@ -106,6 +109,18 @@ export const renderListItemCart = (array) => {
   listBtnSubtractionQty.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       btnSubtractionQty(e.target.getAttribute("data-index"));
+    });
+  });
+  const listInputCart = document.querySelectorAll(".qty-input");
+  console.log("🚀 ~ listInputCart:", listInputCart);
+  listInputCart.forEach((input) => {
+    input.addEventListener("blur", (e) => {
+      const quantity = e.target.value * 1;
+      if (quantity < 1) {
+        input.value = 1;
+      }
+
+      inputQty(e.target.getAttribute("data-id"), Math.max(quantity, 1));
     });
   });
 };
