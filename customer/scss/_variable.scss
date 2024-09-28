@@ -1,0 +1,48 @@
+:root {
+    --clr-primary: #7380ec;
+    --clr-danger:#ff7782;
+    --clr-success:#41f1b6;
+    --clr-white:#fff;
+    --clr-info-dark:#7d8da1;
+    --clr-info-light:#dce1eb;
+    --clr-dark:#363949;
+    --clr-warning:#ff4edc;
+    --clr-light: rgba(132,139,200,0.18);
+    --clr-primary-variant:#111e88;
+    --clr-dark-variant:#677483;
+    --clr-color-background:#f6f6f9;
+
+    --card-border-radius:2rem;
+    --border-radius-1:0.4rem;
+    --border-radius-2:0.8rem;
+    --border-radius-3:1.2rem;
+
+    --card-padding:1.8rem;
+    --padding-1:1.2rem;
+    --box-shadow:0 2rem 3rem var(var(--clr-light));
+    // Brand colors
+
+
+// Brand colors
+    $primary: #354165;
+        $secondary: #4dc0e3;
+
+    // Standard colors
+    $black: #000;
+    $white: #fff;
+    $red: #cc0000;
+
+    // Shades of gray
+    $gray-100: #f0f0f9;
+    $gray-200: #e1e1e7;
+    $gray-300: #d7d7de;
+    $gray-400: #cdcdd1;
+    $gray-500: #a5a5aa;
+    $gray-600: #98989b;
+    $gray-700: #75757a;
+    $gray-800: #666669;
+    $gray-900: #44444a;
+    $gray-1000: #333336;
+    $gray-1100: #222224;
+    $gray-1200: #131314;
+}

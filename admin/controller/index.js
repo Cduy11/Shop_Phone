@@ -1,7 +1,7 @@
 const PRODUCT_URL = "https://66c740bc732bf1b79fa5e903.mockapi.io/products";
 
 let editedID = null;
-let allProducts = []; 
+let allProducts = [];
 
 // Lấy thông tin và hiện thông tin
 let fetchData = () => {
@@ -10,8 +10,8 @@ let fetchData = () => {
     method: "GET",
   })
     .then(function (res) {
-      allProducts = res.data; 
-      renderProduct(allProducts); 
+      allProducts = res.data;
+      renderProduct(allProducts);
     })
     .catch(function (err) {
       console.log("🚀 ~ err:", err);
@@ -39,7 +39,8 @@ let addProduct = () => {
   let isValid =
     kiemTraRong(product.id, "tb_id") &
     kiemTraRong(product.name, "tb_name") &
-    (kiemTraRong(product.price, "tb_price") && kiemTraSoDuong(product.price, "tb_price")) &
+    (kiemTraRong(product.price, "tb_price") &&
+      kiemTraSoDuong(product.price, "tb_price")) &
     kiemTraRong(product.screen, "tb_screen") &
     kiemTraRong(product.backCamera, "tb_camera") &
     kiemTraRong(product.frontCamera, "tb_fontCamera") &
@@ -87,7 +88,8 @@ const updateProduct = () => {
   let isValid =
     kiemTraRong(product.id, "tb_id") &
     kiemTraRong(product.name, "tb_name") &
-    (kiemTraRong(product.price, "tb_price") && kiemTraSoDuong(product.price, "tb_price")) &
+    (kiemTraRong(product.price, "tb_price") &&
+      kiemTraSoDuong(product.price, "tb_price")) &
     kiemTraRong(product.screen, "tb_screen") &
     kiemTraRong(product.backCamera, "tb_camera") &
     kiemTraRong(product.frontCamera, "tb_fontCamera") &
@@ -127,7 +129,7 @@ const closeProduct = () => {
 document.getElementById("priceFilter").addEventListener("change", function () {
   let selectedOption = document.getElementById("priceFilter").value;
 
-  let products = [...allProducts]; 
+  let products = [...allProducts];
 
   if (selectedOption === "asc") {
     products.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
@@ -135,14 +137,14 @@ document.getElementById("priceFilter").addEventListener("change", function () {
     products.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
   }
 
-  renderProduct(products); 
+  renderProduct(products);
 });
 
 // Hàm filter theo loại sản phẩm
 document.getElementById("typeFilter").addEventListener("change", function () {
   let selectedType = document.getElementById("typeFilter").value;
 
-  let products = [...allProducts]; 
+  let products = [...allProducts];
 
   if (selectedType !== "all") {
     products = products.filter((product) =>
@@ -150,7 +152,7 @@ document.getElementById("typeFilter").addEventListener("change", function () {
     );
   }
 
-  renderProduct(products); 
+  renderProduct(products);
 });
 
 // Hàm search sản phẩm
@@ -161,5 +163,5 @@ document.getElementById("searchInput").addEventListener("input", function () {
     product.name.toLowerCase().includes(search)
   );
 
-  renderProduct(filteredProducts); 
+  renderProduct(filteredProducts);
 });

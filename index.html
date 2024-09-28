@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="topHeader">
+                <div class="headerLeft">
+                    <div>
+                        <i class="fa-regular fa-envelope"></i>
+                        mhhasanul@gmail.com
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-phone-volume"></i>
+                        (12345)67890
+                    </div>
+                </div>
+                <div class="headerRight">
+                    <div>
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                        <a href="./admin/view/index.html" target="_blank">Admin Page</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <section class="navBar">
+        <nav class="container">
+            <div class="navBarLogo">
+                <a href="#">Shop</a>
+            </div>
+            <div class="navBarItem">
+                <ul>
+                    <li><a class="active" href="#">Home</a></li>
+                    <li><a href="#">Pages</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="navBarCard">
+                <nav id="main-nav">
+                    <button class="cart-button" id="btbCart" href="#">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </button>
+                </nav>
+                <aside id="sidebar-cart">
+                    <main>
+                        <button id="btnCartClose" class="close-button"><span class="close-icon">X</span></button>
+                        <h2 id="shoppingCount">
+
+                        </h2>
+                        <ul class="products" id="productCart">
+
+
+                        </ul>
+                        <div class="totals" id="totalsCart">
+
+                        </div>
+                        <div class="action-buttons">
+                            <a class="view-cart-button" href="#">Cart</a><a class="checkout-button"
+                                href="#">Checkout</a>
+                        </div>
+                    </main>
+                </aside>
+            </div>
+        </nav>
+    </section>
+
+
+    <section class="product">
+        <div class="container">
+            <h2>List Product</h2>
+
+            <div class="listProduct" id="listProduct">
+
+            </div>
+        </div>
+    </section>
+    <footer>
+        <section class="d-flex justify-content-center p-4 border-bottom">
+            <!-- Left -->
+            <div class="me-5 d-none d-lg-block">
+                <span>Get connected with us on social networks:</span>
+            </div>
+            <!-- Left -->
+            <!-- Right -->
+            <div>
+                <a href="" class="me-4 text-reset">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <i class="fab fa-google"></i>
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <!-- Right -->
+        </section>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"
+        integrity="sha512-DdX/YwF5e41Ok+AI81HI8f5/5UsoxCVT9GKYZRIzpLxb8Twz4ZwPPX+jQMwMhNQ9b5+zDEefc+dcvQoPWGNZ3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module" src="/customer/js/style.js"></script>
+</body>
+
+</html>
